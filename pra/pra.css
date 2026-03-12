@@ -1,0 +1,226 @@
+body{
+  background-repeat: repeat;
+  background-color: #f0f0f0;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto; /* 左右中央寄せ */
+  background: white; /* コンテンツエリアだけ白くする */
+  border: 2px solid #000; /* 黒い縁取りをつけるとレトロ感アップ */
+  padding: 20px;
+}
+header {
+  display: flex;             /* 横並びにする */
+  justify-content: space-between; /* 両端に振り分ける */
+  align-items: center;       /* 上下の中央を揃える */
+  
+  padding: 10px 20px;        /* 左右に少し隙間を空ける */
+}
+.header-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%; /* 横に広めの余白 */
+    background-color: #1a1a1a; /* ダークな背景で引き締める */
+    color: #ffffff;
+}
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em; /* 文字間を少し詰めると今っぽいです */
+  font-size: 1.5rem;
+}
+.box {
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0px #000; /* ぼかさない影 */
+}
+  .hamburger{
+    width: 40px;
+    height: 25px;
+    position: relative;
+  }
+  .hamburger span{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transition: .5s;
+  }
+  .hamburger span:first-of-type{/* ハンバーガーメニューの1番目の線 */
+    top: 0;
+  }
+  .hamburger span:nth-of-type(2){/* ハンバーガーメニューの2番目の線 */
+    top: 50%;
+  }
+  .hamburger span:last-of-type{/* ハンバーガーメニューの3番目の線 */
+    top: 100%;
+  }
+  .slide-menu{
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 90px;
+    width: 100%;
+    left: 0;
+    transform: translateX(100%);
+    transition: .5s;
+    z-index: 3;   
+  }
+  .slide-menu li{
+    color: #fff;
+    line-height: 400%;
+    text-align: center;
+  }
+  .slide-menu-tex{
+    color:aliceblue
+  }
+  .hamburger.active span:first-of-type{/* ハンバーガーメニューの1番目の線 */
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  .hamburger.active span:nth-of-type(2){/* ハンバーガーメニューの2番目の線 */
+    opacity: 0;/* 透明にする */
+  }
+  .hamburger.active span:last-of-type{/* ハンバーガーメニューの3番目の線 */
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+  .slide-menu.active{
+    transform: translateX(0); 
+  }
+  .title-tex{
+    color:#222f22;
+  }
+/* 下のテキストボックス */
+main.box {
+  margin-top: 20px; /* アニメーションエリアとの間隔 */
+  padding: 10px 20px;
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* リンクの基本デザイン */
+.inline-link {
+  color: #0000ff; /* 昔懐かしいパキッとした青 */
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* マウスを乗せた時に色を変える */
+.inline-link:hover {
+  background-color: #ffff00; /* 蛍光イエローのハイライト */
+  color: #000;
+  text-decoration: none;
+}  
+
+/* ウィンドウの上部分（青いバー風） */
+.profile-header {
+  background: #000080; /* 昔のWindows風の紺色、または黒 */
+  color: white;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+
+/* アイコン画像 */
+.profile-icon img {
+  width: 120px;
+  height: 120px;
+  border: 3px solid #000;
+  image-rendering: pixelated; /* ドット絵ならこれをいれるとクッキリします */
+}
+
+.profile-text h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  text-decoration: underline; /* 下線をつけるとさらにレトロ */
+}
+
+/* 台座の設定 */
+.animation-area {
+  position: relative; /* 基準点になる */
+  width: 100%;
+  min-height: 400px; /* カードが収まるくらいの高さ */
+  display: flex;
+  justify-content: center; /* 横方向中央 */
+  align-items: center;     /* 縦方向中央 */
+  overflow: hidden;
+}
+
+/* 背景のGIFを背面に固定する */
+.bg-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画面いっぱいに広げる */
+  z-index: 1;        /* 一番下 */
+}
+
+/* プロフィールカードを上に浮かせる */
+.profile-card {
+  position: relative;
+  z-index: 2;        /* GIFより上にする */
+  background: white; /* 枠の中を白く塗る */
+  width: 90%;
+  max-width: 500px;
+  /* 前に作った .box クラスが効いていれば、ここで枠線がつきます */
+}
+
+/* 中身のレイアウトを整える */
+.profile-content {
+  display: flex;
+  padding: 20px;
+  gap: 15px;
+  align-items: center;
+}
+/* 1. 揺れる動きのルールを作る */
+@keyframes fuwafuwa {
+  0%   { transform: translateY(0); }       /* 最初：元の位置 */
+  50%  { transform: translateY(-5px); }    /* 中間：5px上に浮く */
+  100% { transform: translateY(0); }       /* 最後：元の位置に戻る */
+}
+
+/* 2. リンクにその動きを適用する */
+.inline-link {
+  display: inline-block; /* 動かすために必要 */
+  color: #0000ff;
+  text-decoration: underline;
+  font-weight: bold;
+  
+  /* アニメーションの設定 */
+  animation: fuwafuwa 1.5s infinite ease-in-out; /* 1.5秒かけて無限に繰り返す */
+}
+@keyframes rainbow-text {
+  0%   { color: #ff0000; } /* 赤 */
+  33%  { color: #00ff00; } /* 緑 */
+  66%  { color: #0000ff; } /* 青 */
+  100% { color: #ff0000; } /* 赤に戻る */
+}
+
+.inline-link {
+  display: inline-block;
+  text-decoration: underline;
+  animation: 
+    fuwafuwa 0.5s infinite ease-in-out,
+    rainbow-text 3s infinite linear; /* 揺れと色の変化を同時に！ */
+}
+
+/* タイムラインを囲む枠 */
+.tweet-container {
+  max-width: 400px; /* 横幅を絞ると「窓」っぽくなります */
+  margin: 20px auto;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+  background: #fff;
+  overflow: hidden; /* 中身がはみ出さないように */
+}
+
+/* タイムライン自体の高さを制限してスクロールさせる */
+.twitter-timeline {
+  display: block;
+}
